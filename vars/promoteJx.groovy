@@ -4,7 +4,7 @@ def call() {
             sh "jx step changelog --version $VERSION"
 
             // release the helm chart
-            sh "jx step helm release"
+            sh "jx step helm release --log-level debug"
 
             // promote through all 'Auto' promotion Environments
             sh "jx promote -b --all-auto --timeout 1h --version $VERSION"
