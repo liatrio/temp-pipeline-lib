@@ -1,6 +1,6 @@
 def call() {
     container('maven') {
-        dir('charts/sample-app-api') {
+        dir('charts/my-sample-app') {
             sh "jx step changelog --version $VERSION"
 
             // release the helm chart
