@@ -27,14 +27,11 @@ def call(params) {
 
         sh "skaffold build -f skaffold.yaml"
         sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$VERSION"
-        sh "echo hi jon"
         if (env.BRANCH_NAME.contains("PR")) {
             dir('charts/preview') {
                 sh "make preview"
                 sh "jx preview --app $APP_NAME --dir ../.."
-                sh "echo takumin 1"
                 env.APP_URL = sh returnStdout: true, script: 'jx get previews -c'
-                sh "echo takumin 2"
             }
             echo "url to sample app is: ${env.APP_URL}"
         }
