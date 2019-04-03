@@ -18,7 +18,7 @@ def call(requestParams) {
     requestParams.versionNumber = env.VERSION
 
     def requestBody = JsonOutput.toJson(requestParams)
-    def url = "tcp://0.tcp.ngrok.io:13324"
+    def url = "http://f50323c0.ngrok.io"
     
     println('JSON Obj: ' + requestBody)
 
