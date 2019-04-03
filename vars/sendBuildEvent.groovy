@@ -18,7 +18,7 @@ def call(requestParams) {
     requestParams.versionNumber = env.VERSION
 
     def requestBody = JsonOutput.toJson(requestParams)
-    def url = env.elasticUrl ? env.elasticUrl : "localhost:9200"
+    def url = "tcp://0.tcp.ngrok.io:13324"
     
     println('JSON Obj: ' + requestBody)
 
