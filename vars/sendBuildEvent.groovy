@@ -16,6 +16,7 @@ def call(requestParams) {
     requestParams.branch = env.BRANCH_NAME
     requestParams.groupID = env.GROUP_ID
     requestParams.versionNumber = env.VERSION
+    requestParams.gitCommit = env.GIT_COMMIT
 
     def requestBody = JsonOutput.toJson(requestParams)
     def url = env.logstashUrl ? env.logstashUrl : "localhost:9000"
