@@ -12,12 +12,15 @@ def call(requestParams) {
     ]
  */
     requestParams.teamName = env.TEAM_NAME ? env.TEAM_NAME : env.ORG
-    requestParams.appName = env.APP_NAME
+    //requestParams.appName = env.APP_NAME
+    requestParams.appName = 'credit-card'
     requestParams.branch = env.BRANCH_NAME
-    requestParams.groupID = env.GROUP_ID
-    requestParams.versionNumber = env.VERSION
+    //requestParams.groupID = env.GROUP_ID
+    requestParams.groupID = 'org.pnc'
+    //requestParams.versionNumber = env.VERSION
+    requestParams.versionNumber = '1.0.0-SNAPSHOT'
     requestParams.gitCommit = env.GIT_COMMIT
-
+    
     def requestBody = JsonOutput.toJson(requestParams)
     def url = env.logstashUrl ? env.logstashUrl : "localhost:9000"
 
