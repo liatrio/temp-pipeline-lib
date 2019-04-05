@@ -18,7 +18,8 @@ def call(requestParams) {
     requestParams.versionNumber = env.VERSION
 
     def requestBody = JsonOutput.toJson(requestParams)
-    def url = "145a679d.ngrok.io"
+    def url = env.logstashUrl ? env.logstashUrl : "localhost:9000"
+
     
     println('JSON Obj: ' + requestBody)
 
